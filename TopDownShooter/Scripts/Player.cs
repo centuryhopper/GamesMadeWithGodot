@@ -7,13 +7,16 @@ public partial class Player : Node2D
 {
 	[Export] float speed = 500f;
 	[Export] private float health = 100f;
+	[Export] private string audioStreamPlayerName = "AudioStreamPlayer";
+	// [Export] private string characterBody2DName = "PlayerCharacterBody2D";
+	[Export] private string area2DName = "Area2D";
 	public float Health
 	{
 		get => health;
 		set
 		{
 			health = value;
-			//GD.Print(health);
+			GD.Print(health);
 			if (health <= 0f)
 			{
 				QueueFree();
@@ -22,26 +25,40 @@ public partial class Player : Node2D
 	}
 	private PackedScene bulletScene;
 
-	Node2D firePt;
+	private Node2D firePt;
+	private AudioStreamPlayer audioStreamPlayer;
+	// private CharacterBody2D characterBody2D;
+	private Area2D area2D;
+
 
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		// characterBody2D = GetNode<CharacterBody2D>(characterBody2DName);
+		area2D = GetNode<Area2D>(area2DName);
+		area2D.AreaEntered += OnAreaEntered2D;
+		area2D.AreaExited += OnAreaExited2D;
+
 		bulletScene = GD.Load<PackedScene>("res://Scenes/Bullet.tscn");
 
 		firePt = GetNode<Node2D>("FirePt");
 
-		// foreach (var child in GetChildren())
-		// {
-		// 	GD.Print(child.Name);
-		// }
+		audioStreamPlayer = GetNode<AudioStreamPlayer>(audioStreamPlayerName);
+		audioStreamPlayer.Stream = GD.Load<AudioStream>("res://Audio/barreta_m9-Dion_Stapper.wav");
 	}
 
-	
+    private void OnAreaExited2D(Area2D area)
+    {
+        GD.Print("player leaving from " + area.Name);
+    }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+    private void OnAreaEntered2D(Area2D area)
+    {
+    	GD.Print("player collided with " + area.Name);
+    }
+
+    public override void _Process(double delta)
 	{
 		var moveVector = Vector2.Zero;
 		var moveAmount = speed * (float)delta;
@@ -87,17 +104,12 @@ public partial class Player : Node2D
 
 				var bullet = (Bullet)bulletScene.Instantiate();
 
-				bullet.Position = firePt.Position;
-				bullet.Rotation = firePt.Rotation;
+				bullet.Position = firePt.GlobalPosition;
+				bullet.Rotation = firePt.GlobalRotation;
 
-				AddChild(bullet);
+				audioStreamPlayer.Play();
 
-				// foreach (var child in GetChildren())
-				// {
-				// 	GD.Print(child.Name);
-				// }
-
-				// GD.Print("\n");
+				GetTree().Root.AddChild(bullet);
 
 				GetViewport().SetInputAsHandled();
 			}

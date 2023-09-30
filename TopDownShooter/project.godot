@@ -13,7 +13,7 @@ config_version=5
 config/name="TopDownShooter"
 run/main_scene="res://Scenes/Level1.tscn"
 config/features=PackedStringArray("4.1", "C#", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Images/icon.svg"
 
 [dotnet]
 
@@ -24,6 +24,7 @@ project/assembly_name="TopDownShooter"
 2d_physics/layer_1="player"
 2d_physics/layer_2="bullet"
 2d_physics/layer_3="enemy"
+2d_physics/layer_4="big_furniture"
 
 [rendering]
 
