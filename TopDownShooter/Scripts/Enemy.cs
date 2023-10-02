@@ -20,14 +20,14 @@ public partial class Enemy : Node2D
 			}
 		}
 	}
-	private Player player;
+	private PlayerCharacter player;
 	private Timer timer;
 	private Area2D area2D;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		player = GetNode<Player>("../Player");
+		player = GetNode<PlayerCharacter>("../PlayerCharacter");
 		timer = GetNode<Timer>("Timer");
 
 		timer.Timeout += OnTimerTimeOut;
@@ -51,7 +51,7 @@ public partial class Enemy : Node2D
 
 	private void OnAreaExited2D(Area2D area)
 	{
-		if (area.GetParent() is Player player)
+		if (area.GetParent() is PlayerCharacter player)
 		{
 			timer.Stop();
 		}
@@ -80,16 +80,16 @@ public partial class Enemy : Node2D
 
     public void OnBodyEnter2D(Node2D other)
 	{
-		GD.Print("enemy collided with " + other.Name);
+		GD.Print("enemy body collided with " + other.Name);
 		// QueueFree();
 	}
 
 	// Define the method that will be called when the signal is emitted.
 	private void OnAreaEntered2D(Area2D area)
 	{
-		// GD.Print("enemy collided with " + area.Name);
+		GD.Print("enemy area collided with " + area.Name);
 
-		if (area.GetParent() is Player player)
+		if (area.GetParent() is PlayerCharacter player)
 		{
 			// GD.Print(player.Name);
 			// (area.GetParent() as Player).Health -= damageAmount;

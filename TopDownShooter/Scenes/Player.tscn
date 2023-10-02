@@ -21,9 +21,13 @@ position = Vector2(137, 50)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_mask = 12
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-26.8382, 12.5)
 scale = Vector2(2.2828, 2.8826)
 shape = SubResource("RectangleShape2D_ccqsy")

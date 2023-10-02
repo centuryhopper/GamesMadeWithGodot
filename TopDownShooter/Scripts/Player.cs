@@ -35,6 +35,8 @@ public partial class Player : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		SetProcessInput(false);
+		SetProcess(false);
 		// characterBody2D = GetNode<CharacterBody2D>(characterBody2DName);
 		area2D = GetNode<Area2D>(area2DName);
 		area2D.AreaEntered += OnAreaEntered2D;
