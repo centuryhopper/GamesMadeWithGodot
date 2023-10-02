@@ -25,6 +25,7 @@ project/assembly_name="TopDownShooter"
 2d_physics/layer_2="bullet"
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="furniture"
+2d_physics/layer_5="wall"
 
 [rendering]
 

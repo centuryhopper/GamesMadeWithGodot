@@ -27,7 +27,6 @@ public partial class PlayerCharacter : CharacterBody2D
 	private Node2D firePt;
 	private AudioStreamPlayer audioStreamPlayer;
 
-	private TileMap tileMap;
 	private bool isMoving = false;
 	private Sprite2D sprite2D;
 	private RayCast2D rayCast2D;
@@ -38,7 +37,6 @@ public partial class PlayerCharacter : CharacterBody2D
 	public override void _Ready()
 	{
 		bulletScene = GD.Load<PackedScene>("res://Scenes/Bullet.tscn");
-		tileMap = GetNode<TileMap>("../TileMap");
 
 		firePt = GetNode<Node2D>("FirePt");
 		sprite2D = GetNode<Sprite2D>("Sprite2D");
