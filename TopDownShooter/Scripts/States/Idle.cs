@@ -2,13 +2,15 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+[GlobalClass]
 public partial class Idle : State
 {
     public Vector2 MoveDirection;
-    public float WanderTime; 
-    [Export] public CharacterBody2D enemy;
+    public float WanderTime;
+    [Export] public CharacterBody2D Enemy;
     [Export] public float MoveSpeed = 100f;
 
+    private CharacterBody2D Target;
 
     private void RandomizeWander()
     {
@@ -20,13 +22,14 @@ public partial class Idle : State
 
     public override void Enter()
     {
+        Target = GetTree().GetFirstNodeInGroup("player") as CharacterBody2D;
         // GD.Print("entering idle state");
         RandomizeWander();
     }
 
     public override void Exit()
     {
-        throw new NotImplementedException();
+        // GD.Print("leaving idle state");
     }
 
     public override void Update(double delta)
@@ -43,11 +46,16 @@ public partial class Idle : State
 
     public override void PhysicsUpdate(double delta)
     {
-
-        if (enemy is not null)
+        if (Enemy is not null)
         {
-            enemy.Position += MoveDirection * MoveSpeed * (float)delta;
+            Enemy.Position += MoveDirection * MoveSpeed * (float)delta;
             // GD.Print(enemy.GlobalPosition);
+        }
+
+        var dist = Enemy.GlobalPosition.DistanceSquaredTo(Target.GlobalPosition);
+        if (dist < 100_000f)
+        {
+            EmitSignal(SignalName.TransitionSignal, this, "chase");
         }
     }
 }

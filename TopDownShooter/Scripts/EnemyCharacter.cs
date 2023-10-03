@@ -49,16 +49,16 @@ public partial class EnemyCharacter : CharacterBody2D
 	// }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-		// move towards player
-		// float moveAmount = speed * (float)delta;
-		// var moveDirection = (player.Position - Position).Normalized();
-		// Position += moveDirection * moveAmount;
+	// public override void _Process(double delta)
+	// {
+	// 	// move towards player
+	// 	// float moveAmount = speed * (float)delta;
+	// 	// var moveDirection = (player.Position - Position).Normalized();
+	// 	// Position += moveDirection * moveAmount;
 
 
-		// LookAt(player.Position);
-	}
+	// 	// LookAt(player.Position);
+	// }
 
     public override void _PhysicsProcess(double delta)
     {

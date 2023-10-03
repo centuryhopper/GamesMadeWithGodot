@@ -15,6 +15,11 @@ run/main_scene="res://Scenes/Level1.tscn"
 config/features=PackedStringArray("4.1", "C#", "GL Compatibility")
 config/icon="res://Images/icon.svg"
 
+[display]
+
+mouse_cursor/custom_image="res://Images/cursor.png"
+mouse_cursor/custom_image_hotspot=Vector2(16, 16)
+
 [dotnet]
 
 project/assembly_name="TopDownShooter"

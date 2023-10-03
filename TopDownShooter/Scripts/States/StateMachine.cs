@@ -17,8 +17,9 @@ public partial class StateMachine : Node2D
 		{
 			if (child is State)
 			{
+				// GD.Print(child.Name);
 				States[child.Name.ToString().ToLower()] = child as State;
-				(child as State).OnTransition = OnChildTransition;
+				(child as State).TransitionSignal += OnChildTransition;
 			}
 		}
 
@@ -35,6 +36,8 @@ public partial class StateMachine : Node2D
 		{
 			return;
 		}
+
+
 		if (States.TryGetValue(newStateName.ToLower(), out State newState))
 		{
 			if (CurrentState is not null)
@@ -42,7 +45,9 @@ public partial class StateMachine : Node2D
 				CurrentState.Exit();
 			}
 
+			// GD.Print("entering new state: " + newState.Name);
 			newState.Enter();
+			CurrentState = newState;
 		}
     }
 
