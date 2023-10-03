@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://brjtoxqpaawrc"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyCharacter.cs" id="1_jn3ym"]
+[ext_resource type="Texture2D" uid="uid://cdgxf6cu1r4oe" path="res://Images/bandit.png" id="1_ybs7k"]
+[ext_resource type="Script" path="res://Scripts/States/StateMachine.cs" id="2_q7kwr"]
+[ext_resource type="Script" path="res://Scripts/States/Idle.cs" id="3_3e6fu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6i7qi"]
+size = Vector2(70, 55)
+
+[node name="EnemyCharacter" type="CharacterBody2D"]
+position = Vector2(121, 104)
+script = ExtResource("1_jn3ym")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_ybs7k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_6i7qi")
+
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("InitialState")]
+script = ExtResource("2_q7kwr")
+InitialState = NodePath("Idle")
+
+[node name="Idle" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_3e6fu")
+enemy = NodePath("../..")

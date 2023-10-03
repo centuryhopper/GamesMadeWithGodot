@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://cqryat7l8tlb6"]
 
 [ext_resource type="Texture2D" uid="uid://rbpu68jq6q24" path="res://craftpix-551899-free-zombie-tds-tilesets-buildings-and-furniture/Tilelists/Tilelist2.png" id="1_ohjak"]
-[ext_resource type="PackedScene" uid="uid://b5gjq440bor4n" path="res://Scenes/Enemy.tscn" id="2_gjvym"]
 [ext_resource type="Texture2D" uid="uid://dhxb24n4pqs0q" path="res://craftpix-551899-free-zombie-tds-tilesets-buildings-and-furniture/Tilelists/Tilelist3.png" id="3_mrp7r"]
 [ext_resource type="PackedScene" uid="uid://btfu06p1coaye" path="res://Scenes/PlayerCharacter.tscn" id="5_crg0x"]
+[ext_resource type="PackedScene" uid="uid://brjtoxqpaawrc" path="res://Scenes/EnemyCharacter.tscn" id="5_ugjru"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_imkqr"]
 texture = ExtResource("1_ohjak")
@@ -29255,10 +29255,6 @@ tile_set = SubResource("TileSet_mjalu")
 format = 2
 layer_0/tile_data = PackedInt32Array(-1638251, 8519680, 139, -1572715, 8519680, 140, -1507179, 8519680, 141, -1441643, 8519680, 142, -1703786, 8585216, 138, -1638250, 8585216, 139, -1572714, 8585216, 140, -1507178, 8585216, 141, -1441642, 8585216, 142, -1703785, 8650752, 138, -1638249, 8650752, 139, -1572713, 8650752, 140, -1507177, 8650752, 141, -1441641, 8650752, 142, -1703784, 8716288, 138, -1638248, 8716288, 139, -1572712, 8716288, 140, -1507176, 8716288, 141, -1441640, 8716288, 142, -1703783, 8781824, 138, -1638247, 8781824, 139, -1572711, 8781824, 140, -1507175, 8781824, 141, -1441639, 8781824, 142, -1703782, 8847360, 138, -1638246, 8847360, 139, -1572710, 8847360, 140, -1507174, 8847360, 141, -1441638, 8847360, 142, -1638245, 8912896, 139, -1572709, 8912896, 140, -1507173, 8912896, 141, -1441637, 8912896, 142, 3670082, 10092544, 139, 3735618, 10092544, 140, 3801154, 10092544, 141, 3866690, 10092544, 142, 3604547, 10158080, 138, 3670083, 10158080, 139, 3735619, 10158080, 140, 3801155, 10158080, 141, 3866691, 10158080, 142, 3932227, 10158080, 143, 3604548, 10223616, 138, 3670084, 10223616, 139, 3735620, 10223616, 140, 3801156, 10223616, 141, 3866692, 10223616, 142, 3932228, 10223616, 143, 3604549, 10289152, 138, 3670085, 10289152, 139, 3735621, 10289152, 140, 3801157, 10289152, 141, 3866693, 10289152, 142, 3932229, 10289152, 143, 3604550, 10354688, 138, 3670086, 10354688, 139, 3735622, 10354688, 140, 3801158, 10354688, 141, 3866694, 10354688, 142, 3932230, 10354688, 143, 3604551, 10420224, 138, 3670087, 10420224, 139, 3735623, 10420224, 140, 3801159, 10420224, 141, 3866695, 10420224, 142, 3932231, 10420224, 143, 3604552, 10485760, 138, 3670088, 10485760, 139, 3735624, 10485760, 140, 3801160, 10485760, 141, 3866696, 10485760, 142, 3932232, 10485760, 143)
 
-[node name="Enemy" parent="." instance=ExtResource("2_gjvym")]
-position = Vector2(758, 244)
-scale = Vector2(2, 2)
-
 [node name="PlayerCharacter" parent="." instance=ExtResource("5_crg0x")]
 position = Vector2(297, 273)
 scale = Vector2(0.75, 0.75)
@@ -29271,3 +29267,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="EnemyCharacter" parent="." instance=ExtResource("5_ugjru")]
+position = Vector2(758, 244)
+scale = Vector2(2, 2)
