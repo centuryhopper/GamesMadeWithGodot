@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://brjtoxqpaawrc"]
+[gd_scene load_steps=8 format=3 uid="uid://brjtoxqpaawrc"]
 
 [ext_resource type="Script" path="res://Scripts/EnemyCharacter.cs" id="1_jn3ym"]
 [ext_resource type="Texture2D" uid="uid://cdgxf6cu1r4oe" path="res://Images/bandit.png" id="1_ybs7k"]
 [ext_resource type="Script" path="res://Scripts/States/StateMachine.cs" id="2_q7kwr"]
+[ext_resource type="Texture2D" uid="uid://baldnf0xb7f4n" path="res://Images/ViewCone.png" id="3_02l2n"]
 [ext_resource type="Script" path="res://Scripts/States/Idle.cs" id="3_3e6fu"]
 [ext_resource type="Script" path="res://Scripts/States/Chase.cs" id="5_ti52r"]
 
@@ -11,15 +12,46 @@ size = Vector2(70, 55)
 
 [node name="EnemyCharacter" type="CharacterBody2D"]
 position = Vector2(121, 104)
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_jn3ym")
+DETECT_RADIUS = 95
+FOV = 120.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="EnemySprite" type="Sprite2D" parent="."]
 rotation = 1.5708
 texture = ExtResource("1_ybs7k")
+
+[node name="ViewConeSprite" type="Sprite2D" parent="."]
+position = Vector2(83, 3)
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_02l2n")
+
+[node name="FirePt" type="Node2D" parent="."]
+position = Vector2(52, 3)
+
+[node name="LeftEyes" type="Node2D" parent="."]
+position = Vector2(52, 3)
+rotation = -0.516855
+
+[node name="RightEyes" type="Node2D" parent="."]
+position = Vector2(52, 3)
+rotation = 0.536721
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_6i7qi")
+
+[node name="RightRayCast" type="RayCast2D" parent="."]
+position = Vector2(42, 3)
+target_position = Vector2(81, 31)
+collide_with_areas = true
+
+[node name="LeftRayCast" type="RayCast2D" parent="."]
+position = Vector2(42, 3)
+target_position = Vector2(80, -33)
+collide_with_areas = true
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("InitialState")]
 script = ExtResource("2_q7kwr")

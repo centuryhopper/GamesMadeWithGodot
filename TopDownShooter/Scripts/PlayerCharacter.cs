@@ -29,7 +29,6 @@ public partial class PlayerCharacter : CharacterBody2D
 
 	private bool isMoving = false;
 	private Sprite2D sprite2D;
-	private RayCast2D rayCast2D;
 
 
 
@@ -40,7 +39,9 @@ public partial class PlayerCharacter : CharacterBody2D
 
 		firePt = GetNode<Node2D>("FirePt");
 		sprite2D = GetNode<Sprite2D>("Sprite2D");
-		rayCast2D = GetNode<RayCast2D>("RayCast2D");
+
+		
+		
 
 		audioStreamPlayer = GetNode<AudioStreamPlayer>(audioStreamPlayerName);
 		audioStreamPlayer.Stream = GD.Load<AudioStream>("res://Audio/barreta_m9-Dion_Stapper.wav");
