@@ -97,7 +97,7 @@ public partial class EnemyCharacter : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
-		MoveAndSlide();
+		// MoveAndSlide();
 
 		// var direction = 
 

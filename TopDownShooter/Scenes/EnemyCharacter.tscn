@@ -60,8 +60,13 @@ InitialState = NodePath("Chase")
 [node name="Idle" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("Enemy")]
 script = ExtResource("3_3e6fu")
 Enemy = NodePath("../..")
+MoveSpeed = 500.0
 
-[node name="Chase" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("Enemy")]
+[node name="Chase" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("Enemy", "line2D")]
 script = ExtResource("5_ti52r")
 Enemy = NodePath("../..")
 ChaseSpeed = 250.0
+line2D = NodePath("../../Line2D")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-7, 13)

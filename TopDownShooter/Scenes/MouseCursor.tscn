@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c500ed2vsmwm6"]
-
-[ext_resource type="Script" path="res://Scripts/MouseCursor.cs" id="1_hfsmm"]
-
-[node name="MouseCursor" type="Node2D"]
-script = ExtResource("1_hfsmm")
