@@ -8,11 +8,13 @@
 vertices = PackedVector2Array(74, 67, 260, 39, 263, 147, 66, 633, 272, 388, 277, 635, 275, 520, 1135, 524, 1128, 650, 1132, 159, 945, 523, 952, 166, 261, 43, 1131, 56, 1133, 151, 259, 148)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(6, 7, 8, 5), PackedInt32Array(9, 7, 10, 11), PackedInt32Array(12, 13, 14, 15)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(74, 67, 260, 39, 263, 147, 272, 388, 277, 635, 66, 633), PackedVector2Array(275, 520, 1135, 524, 1128, 650, 277, 635), PackedVector2Array(952, 166, 945, 523, 1135, 524, 1132, 159), PackedVector2Array(261, 43, 1131, 56, 1133, 151, 259, 148)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hpk30"]
 vertices = PackedVector2Array(-6, -6, 8, -6, 8, 8, -6, 8)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-6, -6, 8, -6, 8, 8, -6, 8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_glww8"]
 texture = ExtResource("1_2kcnj")
