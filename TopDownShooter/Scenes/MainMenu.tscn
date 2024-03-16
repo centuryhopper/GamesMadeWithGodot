@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwkvatwo1vdxs"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_ft8pl"]
+
+[sub_resource type="Theme" id="Theme_ecgq6"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ecgq6")
+script = ExtResource("1_ft8pl")
+
+[node name="VerticalLayoutParent" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+offset_right = 70.0
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="VerticalLayoutParent"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="VerticalLayoutParent"]
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="VerticalLayoutParent"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartButton")
+text = "Quit"
+
+[connection signal="pressed" from="VerticalLayoutParent/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VerticalLayoutParent/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VerticalLayoutParent/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -6,6 +6,6 @@ level designing
   add music
 firing bullets
   sounds
-    enemy should chase you after you fire and hit the enemy
+	enemy should chase you after you fire and hit the enemy
   stay out of enemy line of sight long enough to flee from enemy
 

@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnnv0fkkajx2q"]
+
+[ext_resource type="Script" path="res://Scripts/PauseMenu.cs" id="1_vhe6n"]
+
+[sub_resource type="Theme" id="Theme_ecgq6"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ecgq6")
+script = ExtResource("1_vhe6n")
+
+[node name="VerticalLayoutParent" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+offset_right = 70.0
+grow_vertical = 0
+
+[node name="ResumeButton" type="Button" parent="VerticalLayoutParent"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../MainMenuButton")
+text = "Resume"
+
+[node name="OptionsButton" type="Button" parent="VerticalLayoutParent"]
+layout_mode = 2
+text = "Options"
+
+[node name="MainMenuButton" type="Button" parent="VerticalLayoutParent"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../ResumeButton")
+text = "Main Menu"
+
+[connection signal="pressed" from="VerticalLayoutParent/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VerticalLayoutParent/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VerticalLayoutParent/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
