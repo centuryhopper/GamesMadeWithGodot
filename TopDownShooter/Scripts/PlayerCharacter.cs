@@ -47,7 +47,7 @@ public partial class PlayerCharacter : CharacterBody2D
 		audioStreamPlayer.Stream = GD.Load<AudioStream>("res://Audio/barreta_m9-Dion_Stapper.wav");
 	}
 
-    public override void _Process(double delta)
+	public override void _Process(double delta)
 	{
 		// Move(delta);
 		// if (isMoving)
@@ -80,8 +80,8 @@ public partial class PlayerCharacter : CharacterBody2D
 
 	}
 
-    public override void _PhysicsProcess(double delta)
-    {
+	public override void _PhysicsProcess(double delta)
+	{
 		var moveVector = Vector2.Zero;
 		var moveAmount = speed * (float)delta;
 		Move(delta);
@@ -91,9 +91,9 @@ public partial class PlayerCharacter : CharacterBody2D
 
 		// face the mouse
 		Rotation = (GetGlobalMousePosition() - GlobalPosition).Angle();
-    }
+	}
 
-    private void Move(double delta)
+	private void Move(double delta)
 	{
 		var moveVector = Vector2.Zero;
 		var moveAmount = speed * (float)delta;

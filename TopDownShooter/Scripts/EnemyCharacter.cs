@@ -95,17 +95,17 @@ public partial class EnemyCharacter : CharacterBody2D
 		// LookAt(player.Position);
 	}
 
-    public override void _PhysicsProcess(double delta)
-    {
+	public override void _PhysicsProcess(double delta)
+	{
 		// MoveAndSlide();
 
 		// var direction = 
 
 
-    }
+	}
 
-    public override void _Draw()
-    {
+	public override void _Draw()
+	{
 		/*
 		Godot Engine:
 
@@ -119,36 +119,36 @@ public partial class EnemyCharacter : CharacterBody2D
 		*/
 		var basePt = FovEyes.Position;
 		var deltaX = DETECT_RADIUS * Mathf.Sin(Mathf.DegToRad(FOV / 2));
-        var deltaY = DETECT_RADIUS * Mathf.Cos(Mathf.DegToRad(FOV / 2));
+		var deltaY = DETECT_RADIUS * Mathf.Cos(Mathf.DegToRad(FOV / 2));
 		var rightPt = new Vector2(basePt.X + deltaX, basePt.Y + deltaY);
 		var leftPt = new Vector2(basePt.X + deltaX, basePt.Y - deltaY);
 
 		var centerPt = new Vector2(rightPt.X, basePt.Y);
 
-        DrawLine(basePt, rightPt, Color.FromHsv(1.0f / 12.0f, 1.0f, 1.0f));
+		DrawLine(basePt, rightPt, Color.FromHsv(1.0f / 12.0f, 1.0f, 1.0f));
 
-        DrawLine(basePt, leftPt, Color.FromHsv(1.0f / 12.0f, 1.0f, 1.0f));
+		DrawLine(basePt, leftPt, Color.FromHsv(1.0f / 12.0f, 1.0f, 1.0f));
 
-        DrawLine(rightPt, centerPt, Color.FromHsv(1.0f / 12.0f, 1.0f, 1.0f));
+		DrawLine(rightPt, centerPt, Color.FromHsv(1.0f / 12.0f, 1.0f, 1.0f));
 
-        DrawLine(centerPt, leftPt, Color.FromHsv(1.0f / 12.0f, 1.0f, 1.0f));
-    }
+		DrawLine(centerPt, leftPt, Color.FromHsv(1.0f / 12.0f, 1.0f, 1.0f));
+	}
 
 
 
-    // // Define the method that will be called when the signal is emitted.
-    // private void OnAreaEntered2D(Area2D area)
-    // {
-    // 	GD.Print("enemy area collided with " + area.Name);
+	// // Define the method that will be called when the signal is emitted.
+	// private void OnAreaEntered2D(Area2D area)
+	// {
+	// 	GD.Print("enemy area collided with " + area.Name);
 
-    // 	if (area.GetParent() is PlayerCharacter player)
-    // 	{
-    // 		// GD.Print(player.Name);
-    // 		// (area.GetParent() as Player).Health -= damageAmount;
-    // 		timer.Start(1);
-    // 	}
-    // 	// QueueFree();
-    // }
+	// 	if (area.GetParent() is PlayerCharacter player)
+	// 	{
+	// 		// GD.Print(player.Name);
+	// 		// (area.GetParent() as Player).Health -= damageAmount;
+	// 		timer.Start(1);
+	// 	}
+	// 	// QueueFree();
+	// }
 }
 
 

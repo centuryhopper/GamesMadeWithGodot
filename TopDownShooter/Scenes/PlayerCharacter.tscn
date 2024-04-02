@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://btfu06p1coaye"]
 
-[ext_resource type="Script" path="res://Scripts/PlayerCharacter.cs" id="1_48g6b"]
+[ext_resource type="Script" path="res://Scripts/TestPlayer.cs" id="1_0e7qt"]
 [ext_resource type="Texture2D" uid="uid://b0yl0cb1d7c7x" path="res://Images/survivor-idle_rifle_19.png" id="2_bemna"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ptta6"]
@@ -12,7 +12,7 @@ z_index = -1
 collision_mask = 28
 motion_mode = 1
 platform_wall_layers = 8
-script = ExtResource("1_48g6b")
+script = ExtResource("1_0e7qt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1

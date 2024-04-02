@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://hviy6rfj4qgc"]
+
+[ext_resource type="Script" path="res://Scripts/TestEnemy.cs" id="1_i2uw7"]
+[ext_resource type="Texture2D" uid="uid://m4j8enfqkm57" path="res://Images/icon.svg" id="1_nyk7t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1jja"]
+size = Vector2(37, 33)
+
+[node name="TestEnemy" type="CharacterBody2D" node_paths=PackedStringArray("NavAgent")]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_i2uw7")
+Maxspeed = 120.0
+NavAgent = NodePath("NavigationAgent2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.635294, 0.0470588, 0.207843, 1)
+texture = ExtResource("1_nyk7t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.499998, -1.5)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_u1jja")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
